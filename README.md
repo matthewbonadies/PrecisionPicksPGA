@@ -12,7 +12,7 @@ Utilizing machine learning, we aim to decipher extensive player data and scoring
     - Contains all final notebooks involved in the project
 - `Data`
     - Contains link to copy of the dataset
-- `Data Dictionary
+- `Data Dictionary`
 	- Structure and description of dataset utilized
 - `Presentations`
     - Contains final report which summarizes the project
