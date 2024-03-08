@@ -41,7 +41,7 @@ With this project, our goal is to fill the void in easily accessible, data-drive
 ... ... ...
 
 API Provided by [https://datagolf.com/](https://datagolf.com/)
-Sample Data Available in `Data`
+Sample Data Available in /Data/Google Drive Link
 
 ## Data Dictionary
 ... ... ...
