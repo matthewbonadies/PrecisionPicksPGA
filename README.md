@@ -47,98 +47,98 @@ Sample Data Available in `Data`
 ... ... ...
 
 `Player Statistics DataFrame`
-tour
-year
-season
-event_completed
-event_name
-event_id
-player_name
-dg_id
-fin_text
-round_num
-course_name
-course_num
-course_par
-start_hole
-teetime
-round_score
-sg_putt
-sg_arg
-sg_app
-sg_ott
-sg_t2g
-sg_total
-driving_dist
-driving_acc
-gir
-scrambling
-prox_rgh
-prox_fw
-great_shots
-poor_shots
+- tour
+- year
+- season
+- event_completed
+- event_name
+- event_id
+- player_name
+- dg_id
+- fin_text
+- round_num
+- course_name
+- course_num
+- course_par
+- start_hole
+- teetime
+- round_score
+- sg_putt
+- sg_arg
+- sg_app
+- sg_ott
+- sg_t2g
+- sg_total
+- driving_dist
+- driving_acc
+- gir
+- scrambling
+- prox_rgh
+- prox_fw
+- great_shots
+- poor_shots
 
 `Historical Betting Statistics DataFrame`
-p2_outcome_text
-p2_outcome
-close_time
-bet_type
-p1_outcome_text
-p2_open
-p1_outcome
-tie_rule
-p2_close
-p1_open
-p2_dg_id
-p1_dg_id
-p1_player_name
-open_time
-p2_player_name
-p1_close
-book
-event_completed
-event_name
-season
-year
-event_id
+- p2_outcome_text
+- p2_outcome
+- close_time
+- bet_type
+- p1_outcome_text
+- p2_open
+- p1_outcome
+- tie_rule
+- p2_close
+- p1_open
+- p2_dg_id
+- p1_dg_id
+- p1_player_name
+- open_time
+- p2_player_name
+- p1_close
+- book
+- event_completed
+- event_name
+- season
+- year
+- event_id
 
 `Player Rankings DataFrame`
-player_name
-dg_id
-country
-am
-primary_tour
-datagolf_rank
-owgr_rank
-dg_skill_estimate
-last_updated
-notes
+- player_name
+- dg_id
+- country
+- am
+- primary_tour
+- datagolf_rank
+- owgr_rank
+- dg_skill_estimate
+- last_updated
+- notes
 
 `Course Statistics DataFrame`
-course
-par
-yardage
-yardage_4_5
-yardage_3
-adj_score_to_par
-adj_par_3_score
-adj_par_4_score
-adj_par_5_score
-adj_driving_distance
-adj_sd_distance
-adj_driving_accuracy
-putt_sg
-arg_sg
-app_sg
-ott_sg
-fw_width
-miss_fw_pen_frac
-adj_gir
-less_150_sg
-greater_150_sg
-arg_fairway_sg
-arg_rough_sg
-arg_bunker_sg
-less_5_ft_sg
-greater_5_less_15_sg
-greater_15_sg
+- course
+- par
+- yardage
+- yardage_4_5
+- yardage_3
+- adj_score_to_par
+- adj_par_3_score
+- adj_par_4_score
+- adj_par_5_score
+- adj_driving_distance
+- adj_sd_distance
+- adj_driving_accuracy
+- putt_sg
+- arg_sg
+- app_sg
+- ott_sg
+- fw_width
+- miss_fw_pen_frac
+- adj_gir
+- less_150_sg
+- greater_150_sg
+- arg_fairway_sg
+- arg_rough_sg
+- arg_bunker_sg
+- less_5_ft_sg
+- greater_5_less_15_sg
+- greater_15_sg
