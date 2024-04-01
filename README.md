@@ -18,7 +18,7 @@ With this project, our goal is to fill the void in easily accessible, data-drive
 - `Data`
     - Contains link to copy of the dataset
 - `Data Dictionary`
-    - Structure and description of dataset utilized
+    - Structure and description of datasets utilized
 - `Presentations`
     - Contains final report which summarizes the project
 - `src`
