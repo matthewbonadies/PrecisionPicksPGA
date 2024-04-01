@@ -1,5 +1,4 @@
 # PrecisionPicksPGA
-=========================
 
 ## Project Overview
 ... ... ...
