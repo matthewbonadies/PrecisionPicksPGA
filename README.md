@@ -33,7 +33,6 @@ With this project, our goal is to fill the void in easily accessible, data-drive
     - Project license
 
 ## Dataset
-... ... ...
 
 API Provided by [https://datagolf.com/](https://datagolf.com/)
 
