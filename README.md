@@ -1,8 +1,5 @@
 # PrecisionPicksPGA
-
 ## Project Overview
-... ... ...
-
 ### Introduction
 The landscape of sports betting has significantly transformed following the Supreme Court's 2018 decision to reverse the federal law banning sports betting. With approximately 38 states legalizing sports betting in various forms and the legal online sports betting market in the U.S. reaching over $10 billion in 2023, there's a growing demand for sophisticated analytical tools to navigate this booming industry. As a former competitive golfer with a deep understanding of the sport and its data, I aim to merge my passion for golf with advanced analytics to develop a machine learning model that predicts the outcomes of PGA Tour matchups relative to sportsbook projections.
 
