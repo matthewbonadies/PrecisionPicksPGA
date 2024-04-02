@@ -49,7 +49,7 @@ Should you require additional assistance in grasping the nuances of golf, I invi
 - `References`
     - Contains further supporting materials to help understand golf
 - `Streamlit`
-    - Contains code for deploying the Streamlit application
+    - Currently in development - Estimated launch of April 2024
 - `src`
     - Contains the project source code
 - `README.md`
