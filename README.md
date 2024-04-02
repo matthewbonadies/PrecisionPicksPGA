@@ -45,7 +45,7 @@ Should you require additional assistance in grasping the nuances of golf, I invi
 - `Notebooks`
     - Contains all final notebooks involved in the project
 - `Presentations`
-    - Contains final report which summarizes the project
+    - Contains final presentation decks which summarize the project
 - `References`
     - Contains further supporting materials to help understand golf
 - `Streamlit`
