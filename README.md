@@ -38,24 +38,22 @@ Should you require additional assistance in grasping the nuances of golf, I invi
 
 ## Project Organization
 
-- `Notebooks`
-    - Contains all final notebooks involved in the project
-- `Data`
-    - Contains link to copy of the dataset
 - `Data Dictionary`
     - Structure and description of datasets utilized
+- `Images`
+    - Contains all visualizations created throughout the project
+- `Notebooks`
+    - Contains all final notebooks involved in the project
 - `Presentations`
     - Contains final report which summarizes the project
-- `src`
-    - Contains the project source code
-- `capstone_env.yml`
-    - Conda environment specification
+- `References`
+    - Contains further supporting materials to help understand golf
 - `Streamlit`
     - Contains code for deploying the Streamlit application
+- `src`
+    - Contains the project source code
 - `README.md`
     - Project landing page (this page)
-- `LICENSE`
-    - Project license
 
 ## Dataset
 
