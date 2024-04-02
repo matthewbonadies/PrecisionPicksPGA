@@ -34,6 +34,8 @@ Golf betting involves placing wagers on various outcomes related to golf tournam
  - **Top 5, 10, 20 Finish**: Wagering on a player to finish in the top 5, 10, or 20. Offers lower odds than betting on the winner but is a bit easier to predict.
  - **Head-to-Head Matchups**: This involves betting on one player to outperform another specific player. The focus is on the overall performance rather than just the top positions. This method is most similar to betting in other sports, where you predict the outcome between two competing teams.
 
+Should you require additional assistance in grasping the nuances of golf, I invite you to explore my references directory. There, you will discover a collection of 5 YouTube videos that cover a broad spectrum of topics, ranging from golf fundamentals to the detailed aspects of strokes gained statistics, which are vital for understanding the model.
+
 ## Project Organization
 
 - `Notebooks`
