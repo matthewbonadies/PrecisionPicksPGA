@@ -217,10 +217,6 @@ PyJWT>=2.1.0
 pylint>=2.9.6
 pylint-venv>=2.4.4
 pyls-spyder==0.4.0
-pyobjc-core>=7.3
-pyobjc-framework-Cocoa>=7.3
-pyobjc-framework-CoreServices>=7.3
-pyobjc-framework-FSEvents>=7.3
 pyodbc>=4.0.32
 pyOpenSSL>=20.0.1
 pyparsing>=2.4.7
