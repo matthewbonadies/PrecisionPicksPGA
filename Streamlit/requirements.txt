@@ -5,7 +5,7 @@ aioitertools>=0.7.0
 aiosignal>=1.2.0
 aiosqlite>=0.17.0
 alabaster>=0.7.12
-anaconda-client>=1.7.2
+anaconda-client
 anaconda-navigator>=2.1.1
 anaconda-project>=0.10.1
 anyio>=3.3.0
