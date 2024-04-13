@@ -1,7 +1,6 @@
 ### import libraries
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
 import statsmodels.api as sm
 import plotly.express as px
 from datetime import datetime, timedelta
