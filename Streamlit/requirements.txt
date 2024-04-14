@@ -331,3 +331,4 @@ zict>=2.0.0
 zipp>=3.5.0
 zope.interface>=5.4.0
 zstandard>=0.15.2
+tensorflow
