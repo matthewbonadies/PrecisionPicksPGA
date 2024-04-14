@@ -335,5 +335,4 @@ tensorboard
 tensorboard-data-server
 tensorboard-plugin-wit
 tensorflow
-tensorflow-base
 tensorflow-estimator
