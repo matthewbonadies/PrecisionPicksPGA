@@ -331,9 +331,9 @@ zict>=2.0.0
 zipp>=3.5.0
 zope.interface>=5.4.0
 zstandard>=0.15.2
-tensorboard>=2.6.0
-tensorboard-data-server>=0.6.1
-tensorboard-plugin-wit>=1.8.1
-tensorflow>=2.7.0
-tensorflow-base>=2.7.0
-tensorflow-estimator>=2.7.0
+tensorboard
+tensorboard-data-server
+tensorboard-plugin-wit
+tensorflow
+tensorflow-base
+tensorflow-estimator
