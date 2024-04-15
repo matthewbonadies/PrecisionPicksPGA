@@ -29,7 +29,7 @@ With this project, our goal is to fill the void in easily accessible, data-drive
 - `References`
     - Contains further supporting materials to help understand golf
 - `.gitattributes`
-    - Contains code to utilize Git LFS for tracking of large datasets
+    - Contains code to utilize Git LFS for managing large data files
 - `.dev container`
     - Code used by streamlit for public deployment of application
 - `src`
