@@ -33,7 +33,7 @@ With this project, our goal is to fill the void in easily accessible, data-drive
     - Contains the project source code
 - `.gitattributes`
     - Contains code to utilize Git LFS for managing large data files
-- `.dev container`
+- `.devcontainer`
     - Code used by streamlit for public deployment of application
 
 ## Dataset
