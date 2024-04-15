@@ -10,7 +10,30 @@ The challenge lies in the overwhelming volume of detailed golf data, which, whil
 
 ### **Vision**
 With this project, our goal is to fill the void in easily accessible, data-driven insights regarding PGA Tour results, providing individuals with the tools needed to confidently understand and navigate the complexities of sports betting. We seek not just to analyze betting intricacies using machine learning but also to deepen the sports community's comprehension and involvement with golf.
-  
+
+## Project Organization
+
+- `Data Dictionary`
+    - Structure and description of datasets utilized
+- `Images`
+    - Contains all visualizations created throughout the project
+- `Notebooks`
+    - Contains all final notebooks involved in the project
+- `Presentations`
+    - Contains final presentation decks which summarize the project
+- `References`
+    - Contains further supporting materials to help understand golf
+- `Streamlit`
+    - Currently in development - Estimated launch of April 2024
+- `src`
+    - Contains the project source code
+- `README.md`
+    - Project landing page (this page)
+
+## Dataset
+
+API Provided by [https://datagolf.com/](https://datagolf.com/)
+
 ## Supporting Materials
 ### **What is Golf?**  
 Golf is a sport played on vast outdoor courses, each featuring 18 holes scattered across several thousand yards. Players aim to sink the ball in each hole using the minimum strokes possible. The game's simplicity in objective masks its strategic depth, requiring a wide range of shots from long drives to short, precise chips. Courses include Par 3's, Par 4's, and Par 5's, with the Par number indicating the expected number of strokes to complete the hole, from the starting point, or Tee Box, to the hole which is located on the putting green. The combination of these holes sets a standard course par, usually at 72 strokes, against which players' performances are measured.
@@ -36,25 +59,3 @@ Golf betting involves placing wagers on various outcomes related to golf tournam
 
 Should you require additional assistance in grasping the nuances of golf, I invite you to explore my references directory. There, you will discover a collection of YouTube videos that cover a broad spectrum of topics, ranging from golf fundamentals to the detailed aspects of strokes gained statistics, which are vital for understanding the model.
 
-## Project Organization
-
-- `Data Dictionary`
-    - Structure and description of datasets utilized
-- `Images`
-    - Contains all visualizations created throughout the project
-- `Notebooks`
-    - Contains all final notebooks involved in the project
-- `Presentations`
-    - Contains final presentation decks which summarize the project
-- `References`
-    - Contains further supporting materials to help understand golf
-- `Streamlit`
-    - Currently in development - Estimated launch of April 2024
-- `src`
-    - Contains the project source code
-- `README.md`
-    - Project landing page (this page)
-
-## Dataset
-
-API Provided by [https://datagolf.com/](https://datagolf.com/)
