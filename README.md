@@ -29,12 +29,12 @@ With this project, our goal is to fill the void in easily accessible, data-drive
     - Contains all visualizations created throughout the project
 - `References`
     - Contains further supporting materials to help understand golf
+- `src`
+    - Contains the project source code
 - `.gitattributes`
     - Contains code to utilize Git LFS for managing large data files
 - `.dev container`
     - Code used by streamlit for public deployment of application
-- `src`
-    - Contains the project source code
 
 ## Dataset
 
