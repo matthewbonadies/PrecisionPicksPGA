@@ -19,7 +19,7 @@ With this project, our goal is to fill the void in easily accessible, data-drive
 - `Notebooks`
     - Contains all final notebooks involved in the project
 - `Streamlit`
-    - Contains all code to deploy streamlit app
+    - Contains all code to deploy streamlit application
 - `data`
     - Contains all preprocessed data used for modeling
 - `Presentations`
@@ -28,6 +28,10 @@ With this project, our goal is to fill the void in easily accessible, data-drive
     - Contains all visualizations created throughout the project
 - `References`
     - Contains further supporting materials to help understand golf
+- `.gitattributes`
+    - Contains code to utilize Git LFS for tracking of large datasets
+- `.dev container`
+    - Code used by streamlit for public deployment of application
 - `src`
     - Contains the project source code
 
