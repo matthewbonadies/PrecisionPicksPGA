@@ -16,16 +16,17 @@ With this project, our goal is to fill the void in easily accessible, data-drive
     - Project landing page (this page) containing project overview, data source, and necessary supporting materials
 - `Data Dictionary`
     - Structure and description of datasets utilized
-- `Images`
-    - Contains all visualizations created throughout the project
 - `Notebooks`
     - Contains all final notebooks involved in the project
-- `Presentations`
-    - Contains final presentation decks which summarize the project
-- `References`
-    - Contains further supporting materials to help understand golf
 - `Streamlit`
     - Currently in development - Estimated launch of April 2024
+- `Presentations`
+    - Contains final presentation decks which summarize the project
+- `Images`
+    - Contains all visualizations created throughout the project
+- `References`
+    - Contains further supporting materials to help understand golf
+
 - `src`
     - Contains the project source code
 
