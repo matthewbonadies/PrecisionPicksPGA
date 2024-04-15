@@ -23,6 +23,8 @@ With this project, our goal is to fill the void in easily accessible, data-drive
     - Contains requirments.txt file listing all necessary packages to reproduce the environment for this project
 - `data`
     - Contains all preprocessed data used for modeling
+- `Models`
+    - Contains saved copies of trained models
 - `Presentations`
     - Contains final presentation decks which summarize the project
 - `Images`
