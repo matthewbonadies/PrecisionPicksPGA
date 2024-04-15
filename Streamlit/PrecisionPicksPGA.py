@@ -1,4 +1,5 @@
-### import libraries
+# The following code is utilized to deploy PrecisionPicksPGA on Streamlit
+# import libraries
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
