@@ -74,7 +74,7 @@ def home_page():
     X_train_scaled = scaler.fit_transform(X_train)
     X_test_scaled = scaler.transform(X_test)
     # @st.cache(allow_output_mutation=True)
-    model = keras.models.load_model('pga_nn_1')
+    model = keras.models.load_model('pga_nn_1.h5')
 
     #######################################################################################################################################
     sorted_df = predict_df_sorted.sort_values(by=['dg_id', 'round_completed'])
