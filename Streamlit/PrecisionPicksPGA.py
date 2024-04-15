@@ -1,4 +1,6 @@
 # The following code is utilized to deploy PrecisionPicksPGA on Streamlit
+# Author: Matt Bonadies
+
 # import libraries
 import numpy as np
 import pandas as pd
