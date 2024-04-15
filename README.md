@@ -19,14 +19,15 @@ With this project, our goal is to fill the void in easily accessible, data-drive
 - `Notebooks`
     - Contains all final notebooks involved in the project
 - `Streamlit`
-    - Currently in development - Estimated launch of April 2024
+    - Contains all code to deploy streamlit app
+- `data`
+    - Contains all preprocessed data used for modeling
 - `Presentations`
     - Contains final presentation decks which summarize the project
 - `Images`
     - Contains all visualizations created throughout the project
 - `References`
     - Contains further supporting materials to help understand golf
-
 - `src`
     - Contains the project source code
 
