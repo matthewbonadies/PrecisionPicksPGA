@@ -2,6 +2,7 @@
 # Author: Matt Bonadies
 
 # import libraries
+import streamlit as st
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -27,7 +28,7 @@ from keras.callbacks import EarlyStopping
 from keras.callbacks import ModelCheckpoint
 from keras.models import load_model
 from sklearn.metrics import r2_score
-import streamlit as st
+
 import joblib
 
 def home_page():
@@ -39,10 +40,10 @@ def home_page():
         return df
 
     #######################################################################################################################################
-    train_df_sorted = load_data('../data/train_df_sorted.csv')
-    test_df_sorted = load_data('../data/test_df_sorted.csv')
-    player_df = load_data('../data/player_df.csv')
-    field_df = load_data('../data/field_df.csv')
+    train_df_sorted = load_data('./data/train_df_sorted.csv')
+    test_df_sorted = load_data('./data/test_df_sorted.csv')
+    player_df = load_data('./data/player_df.csv')
+    field_df = load_data('./data/field_df.csv')
 
     #######################################################################################################################################
     # Drop the non-numeric and non-lagged columns prior to training our model
@@ -156,7 +157,7 @@ def stats_page():
         df = pd.read_csv(filedf)
         return df    
     
-    total_df_sorted = load_data('../data/total_df_sorted.csv')
+    total_df_sorted = load_data('./data/total_df_sorted.csv')
     total_df_sorted = total_df_sorted.sort_values(by='round_completed', ascending=True)
     
     total_df_sorted['round_completed'] = pd.to_datetime(total_df_sorted['round_completed'])
@@ -204,7 +205,7 @@ st.sidebar.text("")
 def load_data(filedf):
         df = pd.read_csv(filedf)
         return df
-rank_df = load_data('../data/rank_df.csv')
+rank_df = load_data('./data/rank_df.csv')
 st.sidebar.title("World Golf Rankings")
 rank_df = rank_df.sort_values(by='owgr_rank', ascending=True)
 st.sidebar.dataframe(rank_df)
