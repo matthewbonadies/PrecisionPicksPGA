@@ -20,6 +20,7 @@ With this project, our goal is to fill the void in easily accessible, data-drive
     - Contains all final notebooks involved in the project
 - `Streamlit`
     - Contains all code to deploy streamlit application
+    - Contains requirments.txt file listing all necessary packages to reproduce the necessary environment for this project
 - `data`
     - Contains all preprocessed data used for modeling
 - `Presentations`
