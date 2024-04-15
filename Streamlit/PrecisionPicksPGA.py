@@ -105,7 +105,7 @@ def home_page():
         for _ in range(4):
             mr_scaled = scaler.transform(most_recent_scores)
             predicted_score = model.predict(mr_scaled)
-            noise = np.random.normal(0, 2.75, predicted_score.shape)
+            noise = np.random.normal(0, 2, predicted_score.shape)
             
             predicted_score_noisy = predicted_score + noise
             predicted_score_noisy = predicted_score_noisy.round()
