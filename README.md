@@ -12,7 +12,8 @@ The challenge lies in the overwhelming volume of detailed golf data, which, whil
 With this project, our goal is to fill the void in easily accessible, data-driven insights regarding PGA Tour results, providing individuals with the tools needed to confidently understand and navigate the complexities of sports betting. We seek not just to analyze betting intricacies using machine learning but also to deepen the sports community's comprehension and involvement with golf.
 
 ## Project Organization
-
+- `README.md`
+    - Project landing page (this page) containing project overview, data source, and necessary supporting materials
 - `Data Dictionary`
     - Structure and description of datasets utilized
 - `Images`
@@ -27,8 +28,6 @@ With this project, our goal is to fill the void in easily accessible, data-drive
     - Currently in development - Estimated launch of April 2024
 - `src`
     - Contains the project source code
-- `README.md`
-    - Project landing page (this page)
 
 ## Dataset
 
