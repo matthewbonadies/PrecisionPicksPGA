@@ -48,7 +48,7 @@ def load_model():
 
 
 ##############################################################################################################
-image_path = 'PrecisionPicksPGA.png'
+image_path = 'Streamlit/PrecisionPicksPGA.png'
 image = Image.open(image_path)
 
 def get_image_as_base64(image):
