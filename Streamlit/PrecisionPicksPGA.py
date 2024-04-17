@@ -41,7 +41,6 @@ def load_data(filedf):
     df = pd.read_csv(filedf)
     return df
 
-@st.cache_data
 def load_model():
     model = keras.models.load_model('Streamlit/pga_nn_1.h5')
     return model
