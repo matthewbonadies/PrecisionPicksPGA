@@ -78,7 +78,7 @@ st.sidebar.title("Welcome to PrecisionPicksPGA")
 x=0
 def home_page():
     st.write("TensorFlow version:", tf.__version__)
-    st.write("Keras version:", keras.__version__)
+    # st.write("Keras version:", keras.__version__)
     global x
 
     st.title("Tournament Prediction Model")

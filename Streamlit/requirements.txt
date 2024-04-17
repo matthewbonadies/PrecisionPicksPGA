@@ -25,5 +25,5 @@ statsmodels>=0.12.2
 tensorboard
 tensorboard-data-server
 tensorboard-plugin-wit
-tensorflow
+tensorflow==2.7.0
 tensorflow-estimator
