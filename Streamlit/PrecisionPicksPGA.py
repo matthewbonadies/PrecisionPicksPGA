@@ -113,7 +113,8 @@ def home_page():
     scaler = StandardScaler()
     X_train_scaled = scaler.fit_transform(X_train)
     X_test_scaled = scaler.transform(X_test)
-
+    model = load_model()
+    
     sorted_df = predict_df_sorted.sort_values(by=['dg_id', 'round_completed'])
     most_recent_scores = sorted_df.drop_duplicates(subset='dg_id', keep='last').reset_index(drop=True)
 
@@ -136,7 +137,7 @@ def home_page():
         progress_text = "Model in process. Please wait."
         my_bar = st.progress(0, text=progress_text)
         
-        model = load_model()
+        
 
         player_wins = pd.DataFrame({'dg_id': preserved_ids['dg_id'], 'wins': 0})
         player_t5 = pd.DataFrame({'dg_id': preserved_ids['dg_id'], 'top_5': 0})
@@ -236,7 +237,7 @@ def two_ball_model():
     scaler = StandardScaler()
     X_train_scaled = scaler.fit_transform(X_train)
     X_test_scaled = scaler.transform(X_test)
-    
+    model = load_model()
     
     
 
@@ -264,7 +265,7 @@ def two_ball_model():
     if st.button('Run Matchup Simulation'):
         progress_text = "Model in process. Please wait."
         my_bar = st.progress(0, text=progress_text)
-        model = load_model()
+        
                  
         p1_df = player_df[player_df['player_name'] == selected_player].loc[:, ['dg_id']]
         p2_df = player_df[player_df['player_name'] == selected_player2].loc[:, ['dg_id']]
@@ -348,7 +349,7 @@ def three_ball_model():
     scaler = StandardScaler()
     X_train_scaled = scaler.fit_transform(X_train)
     X_test_scaled = scaler.transform(X_test)
-    
+    model = load_model()
 
     sorted_df = predict_df_sorted.sort_values(by=['dg_id', 'round_completed'])
     most_recent_scores = sorted_df.drop_duplicates(subset='dg_id', keep='last').reset_index(drop=True)
@@ -374,7 +375,7 @@ def three_ball_model():
     input_iter2 = st.number_input('Enter Number of Matchup Model Iterations (Recommended Range: 500-10000)', min_value=1, value=10,format="%d")
     if st.button('Run Matchup Simulation'):
         progress_text = "Model in process. Please wait."
-        model = load_model()
+        
         my_bar = st.progress(0, text=progress_text)
                  
         p1_df = player_df[player_df['player_name'] == selected_player].loc[:, ['dg_id']]
