@@ -43,7 +43,7 @@ def load_data(filedf):
 
 @st.cache_data
 def load_model():
-    model = keras.models.load_model('pga_nn_1.h5')
+    model = keras.models.load_model('Streamlit/pga_nn_1.h5')
     return model
 
 
@@ -114,7 +114,7 @@ def home_page():
     scaler = StandardScaler()
     X_train_scaled = scaler.fit_transform(X_train)
     X_test_scaled = scaler.transform(X_test)
-    model = keras.models.load_model('pga_nn_1.h5')
+    model = keras.models.load_model('Streamlit/pga_nn_1.h5')
 
     sorted_df = predict_df_sorted.sort_values(by=['dg_id', 'round_completed'])
     most_recent_scores = sorted_df.drop_duplicates(subset='dg_id', keep='last').reset_index(drop=True)
@@ -240,7 +240,7 @@ def two_ball_model():
     X_test_scaled = scaler.transform(X_test)
     
     
-    model = keras.models.load_model('pga_nn_1.h5')
+    model = keras.models.load_model('Streamlit/pga_nn_1.h5')
 
     sorted_df = predict_df_sorted.sort_values(by=['dg_id', 'round_completed'])
     most_recent_scores = sorted_df.drop_duplicates(subset='dg_id', keep='last').reset_index(drop=True)
@@ -351,7 +351,7 @@ def three_ball_model():
     X_test_scaled = scaler.transform(X_test)
     
     
-    model = keras.models.load_model('pga_nn_1.h5')
+    model = keras.models.load_model('Streamlit/pga_nn_1.h5')
 
     sorted_df = predict_df_sorted.sort_values(by=['dg_id', 'round_completed'])
     most_recent_scores = sorted_df.drop_duplicates(subset='dg_id', keep='last').reset_index(drop=True)
