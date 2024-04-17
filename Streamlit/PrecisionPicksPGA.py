@@ -42,12 +42,12 @@ def load_data(filedf):
     return df
 
 def load_model():
-    model = keras.models.load_model('pga_nn_1.h5') #Streamlit/
+    model = keras.models.load_model('Streamlit/pga_nn_1.h5') #
     return model
 
 
 ##############################################################################################################
-image_path = 'PrecisionPicksPGA.png' #Streamlit/
+image_path = 'Streamlit/PrecisionPicksPGA.png' #
 image = Image.open(image_path)
 
 def get_image_as_base64(image):
@@ -81,11 +81,11 @@ def home_page():
 
     st.title("Tournament Prediction Model")
 
-    train_df_sorted = load_data('../data/train_df_sorted.csv')
-    test_df_sorted = load_data('../data/test_df_sorted.csv')
-    player_df = load_data('../data/player_df.csv')
-    field_df = load_data('../data/raw_pga_14_2024.csv')
-    total_df_sorted = load_data('../data/total_df_sorted.csv')
+    train_df_sorted = load_data('./data/train_df_sorted.csv')
+    test_df_sorted = load_data('./data/test_df_sorted.csv')
+    player_df = load_data('./data/player_df.csv')
+    field_df = load_data('./data/raw_pga_14_2024.csv')
+    total_df_sorted = load_data('./data/total_df_sorted.csv')
     total_df_sorted = total_df_sorted.sort_values(by='round_completed', ascending=True)
     
 
@@ -206,10 +206,10 @@ def two_ball_model():
 
     st.title("2-Ball Matchup Model")
 
-    train_df_sorted = load_data('../data/train_df_sorted.csv')
-    test_df_sorted = load_data('../data/test_df_sorted.csv')
-    player_df = load_data('../data/player_df.csv')
-    total_df_sorted = load_data('../data/total_df_sorted.csv')
+    train_df_sorted = load_data('./data/train_df_sorted.csv')
+    test_df_sorted = load_data('./data/test_df_sorted.csv')
+    player_df = load_data('./data/player_df.csv')
+    total_df_sorted = load_data('./data/total_df_sorted.csv')
     total_df_sorted = total_df_sorted.sort_values(by='round_completed', ascending=True)
     
 
@@ -318,10 +318,10 @@ def three_ball_model():
 
     st.title("3-Ball Matchup Model")
 
-    train_df_sorted = load_data('../data/train_df_sorted.csv')
-    test_df_sorted = load_data('../data/test_df_sorted.csv')
-    player_df = load_data('../data/player_df.csv')
-    total_df_sorted = load_data('../data/total_df_sorted.csv')
+    train_df_sorted = load_data('./data/train_df_sorted.csv')
+    test_df_sorted = load_data('./data/test_df_sorted.csv')
+    player_df = load_data('./data/player_df.csv')
+    total_df_sorted = load_data('./data/total_df_sorted.csv')
     total_df_sorted = total_df_sorted.sort_values(by='round_completed', ascending=True)
     
 
@@ -427,7 +427,7 @@ def three_ball_model():
 def stats_page():
     st.title("Player Scoring & Statistics History")
     
-    total_df_sorted = load_data('../data/total_df_sorted.csv')
+    total_df_sorted = load_data('./data/total_df_sorted.csv')
     total_df_sorted = total_df_sorted.sort_values(by='round_completed', ascending=True)
     
     total_df_sorted['round_completed'] = pd.to_datetime(total_df_sorted['round_completed'])
@@ -458,7 +458,7 @@ page = st.sidebar.radio("Choose a page:", ('Tournament Prediction Model', '2-Bal
 def load_data(filedf):
         df = pd.read_csv(filedf)
         return df
-rank_df = load_data('../data/rank_df.csv')
+rank_df = load_data('./data/rank_df.csv')
 st.sidebar.title("World Golf Rankings")
 rank_df = rank_df.sort_values(by='owgr_rank', ascending=True)
 st.sidebar.dataframe(rank_df, height=200)
