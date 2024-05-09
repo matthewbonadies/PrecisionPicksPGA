@@ -34,6 +34,17 @@ import base64
 import io
 from io import BytesIO
 import time
+import boto3
+
+
+session = boto3.Session(
+    aws_access_key_id=st.secrets["aws_access_key_id"],
+    aws_secret_access_key=st.secrets["aws_secret_access_key"],
+    region_name='us-east-1'  # Change this to your bucket's region
+)
+s3 = session.client('s3')
+
+
 
 
 ##############################################################################################################
@@ -42,9 +53,17 @@ def load_data(filedf):
     df = pd.read_csv(filedf)
     return df
 
-def load_model():
-    model = keras.models.load_model('pga_nn_1.h5') #
-    return model
+def load_data(bucket_name, object_key):
+    response = s3.get_object(Bucket=bucket_name, Key=object_key)
+    status = response.get("ResponseMetadata", {}).get("HTTPStatusCode")
+
+    if status == 200:
+        data = response['Body'].read()
+        df = pd.read_csv(BytesIO(data))
+        return df
+    else:
+        print("Failed to get data from", object_key)
+        return pd.DataFrame()
 
 
 ##############################################################################################################
@@ -82,13 +101,10 @@ def home_page():
 
     st.title("Tournament Prediction Model")
 
-    train_df_sorted = load_data('s3://mdbaws-b/train_df_sorted.csv')
-    test_df_sorted = load_data('s3://mdbaws-b/test_df_sorted.csv')
-    player_df = load_data('s3://mdbaws-b/player_df.csv')
-    field_df = load_data('s3://mdbaws-b/field_df.csv')
-    # total_df_sorted = load_data('s3://mdbaws-b/total_df_sorted.csv')
-    # total_df_sorted = total_df_sorted.sort_values(by='round_completed', ascending=True)
-    
+    train_df_sorted = load_data('mdbaws-b', 'train_df_sorted.csv')
+    test_df_sorted = load_data('mdbaws-b', 'test_df_sorted.csv')
+    player_df = load_data('mdbaws-b', 'player_df.csv')
+    field_df = load_data('mdbaws-b', 'field_df.csv')
 
     # Drop the non-numeric and non-lagged columns prior to training our model
     train_df_sorted = train_df_sorted.drop(['tour','event_name','course_name','player_name','round_completed','event_completed','year'
@@ -206,10 +222,10 @@ def two_ball_model():
 
     st.title("2-Ball Matchup Model")
 
-    train_df_sorted = load_data('s3://mdbaws-b/train_df_sorted.csv')
-    test_df_sorted = load_data('s3://mdbaws-b/test_df_sorted.csv')
-    player_df = load_data('s3://mdbaws-b/player_df.csv')
-    total_df_sorted = load_data('s3://mdbaws-b/total_df_sorted.csv')
+    train_df_sorted = load_data('mdbaws-b', 'train_df_sorted.csv')
+    test_df_sorted = load_data('mdbaws-b', 'test_df_sorted.csv')
+    player_df = load_data('mdbaws-b', 'player_df.csv')
+    total_df_sorted = load_data('mdbaws-b', 'total_df_sorted.csv')
     total_df_sorted = total_df_sorted.sort_values(by='round_completed', ascending=True)
 
 
@@ -318,10 +334,10 @@ def three_ball_model():
 
     st.title("3-Ball Matchup Model")
 
-    train_df_sorted = load_data('s3://mdbaws-b/train_df_sorted.csv')
-    test_df_sorted = load_data('s3://mdbaws-b/test_df_sorted.csv')
-    player_df = load_data('s3://mdbaws-b/player_df.csv')
-    total_df_sorted = load_data('s3://mdbaws-b/total_df_sorted.csv')
+    train_df_sorted = load_data('mdbaws-b', 'train_df_sorted.csv')
+    test_df_sorted = load_data('mdbaws-b', 'test_df_sorted.csv')
+    player_df = load_data('mdbaws-b', 'player_df.csv')
+    total_df_sorted = load_data('mdbaws-b', 'total_df_sorted.csv')
     total_df_sorted = total_df_sorted.sort_values(by='round_completed', ascending=True)
 
 
@@ -427,7 +443,7 @@ def three_ball_model():
 def stats_page():
     st.title("Player Scoring & Statistics History")
     
-    total_df_sorted = load_data('s3://mdbaws-b/total_df_sorted.csv')
+    total_df_sorted = load_data('mdbaws-b', 'total_df_sorted.csv')
     total_df_sorted = total_df_sorted.sort_values(by='round_completed', ascending=True)
     
     total_df_sorted['round_completed'] = pd.to_datetime(total_df_sorted['round_completed'])
