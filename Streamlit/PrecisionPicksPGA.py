@@ -35,6 +35,7 @@ import io
 from io import BytesIO
 import time
 
+
 ##############################################################################################################
 @st.cache_data
 def load_data(filedf):
@@ -42,12 +43,12 @@ def load_data(filedf):
     return df
 
 def load_model():
-    model = keras.models.load_model('Streamlit/pga_nn_1.h5') #
+    model = keras.models.load_model('pga_nn_1.h5') #
     return model
 
 
 ##############################################################################################################
-image_path = 'Streamlit/PrecisionPicksPGA.png' #
+image_path = 'PrecisionPicksPGA.png' #
 image = Image.open(image_path)
 
 def get_image_as_base64(image):
@@ -77,18 +78,16 @@ st.sidebar.title("Welcome to PrecisionPicksPGA")
 
 x=0
 def home_page():
-    # st.write("TensorFlow version:", tf.__version__)
-    # st.write("Keras version:", keras.__version__)
     global x
 
     st.title("Tournament Prediction Model")
 
-    train_df_sorted = load_data('./data/train_df_sorted.csv')
-    test_df_sorted = load_data('./data/test_df_sorted.csv')
-    player_df = load_data('./data/player_df.csv')
-    field_df = load_data('./data/raw_pga_14_2024.csv')
-    total_df_sorted = load_data('./data/total_df_sorted.csv')
-    total_df_sorted = total_df_sorted.sort_values(by='round_completed', ascending=True)
+    train_df_sorted = load_data('s3://mdbaws-b/train_df_sorted.csv')
+    test_df_sorted = load_data('s3://mdbaws-b/test_df_sorted.csv')
+    player_df = load_data('s3://mdbaws-b/player_df.csv')
+    field_df = load_data('s3://mdbaws-b/field_df.csv')
+    # total_df_sorted = load_data('s3://mdbaws-b/total_df_sorted.csv')
+    # total_df_sorted = total_df_sorted.sort_values(by='round_completed', ascending=True)
     
 
     # Drop the non-numeric and non-lagged columns prior to training our model
@@ -149,7 +148,6 @@ def home_page():
         iternum = int(input_iter)
         num_iterations = iternum
         for iteration in range(num_iterations):
-            # time.sleep(0.01)
             my_bar.progress((iteration + 1)/num_iterations, text=progress_text)
 
             sum_scores_df = preserved_ids.copy()
@@ -158,7 +156,7 @@ def home_page():
             for i in range(4):
                 mr_scaled = scaler.transform(most_recent_scores)
                 predicted_score = model.predict(mr_scaled)
-                noise = np.random.normal(0, 2, predicted_score.shape)
+                noise = np.random.normal(0, 5, predicted_score.shape)
                 
                 predicted_score_noisy = predicted_score + noise
                 predicted_score_noisy = predicted_score_noisy
@@ -187,11 +185,11 @@ def home_page():
         player_t10['t10_probability'] = (player_t10['top_10'] / num_iterations)
         player_t20['t20_probability'] = (player_t20['top_20'] / num_iterations)
 
-        fin_df1 = player_wins.merge(this_week_df[['dg_id', 'player_name']], on='dg_id', how='inner').sort_values(by='wins', ascending=False)
+        fin_df1 = player_wins.merge(this_week_df_sorted[['dg_id', 'player_name','event_name']], on='dg_id', how='inner').sort_values(by='wins', ascending=False)
         fin_df2 = fin_df1.merge(player_t5, on='dg_id', how='left').sort_values(by=['wins','top_5'], ascending=[False,False])
         fin_df3 = fin_df2.merge(player_t10, on='dg_id', how='left').sort_values(by=['wins','top_5','top_10'], ascending=[False,False,False])
         fin_df4 = fin_df3.merge(player_t20, on='dg_id', how='left').sort_values(by=['wins','top_5','top_10','top_20'], ascending=[False,False,False,False])
-        final_fin_df = fin_df4[['dg_id','player_name','win_probability','t5_probability','t10_probability','t20_probability']].sort_values(by=['win_probability','t5_probability','t10_probability','t20_probability'], ascending=[False,False,False,False])
+        final_fin_df = fin_df4[['dg_id','player_name','event_name','win_probability','t5_probability','t10_probability','t20_probability']].sort_values(by=['win_probability','t5_probability','t10_probability','t20_probability'], ascending=[False,False,False,False])
         final_fin_df = final_fin_df.style.format({
             'win_probability': '{:.1%}',
             't5_probability': '{:.1%}',
@@ -208,12 +206,12 @@ def two_ball_model():
 
     st.title("2-Ball Matchup Model")
 
-    train_df_sorted = load_data('./data/train_df_sorted.csv')
-    test_df_sorted = load_data('./data/test_df_sorted.csv')
-    player_df = load_data('./data/player_df.csv')
-    total_df_sorted = load_data('./data/total_df_sorted.csv')
+    train_df_sorted = load_data('s3://mdbaws-b/train_df_sorted.csv')
+    test_df_sorted = load_data('s3://mdbaws-b/test_df_sorted.csv')
+    player_df = load_data('s3://mdbaws-b/player_df.csv')
+    total_df_sorted = load_data('s3://mdbaws-b/total_df_sorted.csv')
     total_df_sorted = total_df_sorted.sort_values(by='round_completed', ascending=True)
-    
+
 
     # Drop the non-numeric and non-lagged columns prior to training our model
     train_df_sorted = train_df_sorted.drop(['tour','event_name','course_name','player_name','round_completed','event_completed','year'
@@ -261,8 +259,8 @@ def two_ball_model():
     player_names = total_df_sorted['player_name'].unique()
     
     ##############################################################################################################
-    selected_player = st.selectbox('Select Player 1', np.sort(player_names), index = 799)
-    selected_player2 = st.selectbox('Select Player 2', np.sort(player_names), index = 606)
+    selected_player = st.selectbox('Select Player 1', np.sort(player_names), index = 802)
+    selected_player2 = st.selectbox('Select Player 2', np.sort(player_names), index = 608)
     input_iter2 = st.number_input('Enter Number of Matchup Model Iterations (Recommended Range: 500-10000)', min_value=1, value=10,format="%d")
     if st.button('Run Matchup Simulation'):
         progress_text = "Model in process. Please wait."
@@ -285,7 +283,7 @@ def two_ball_model():
             for i2 in range(4):
                 mr_scaled2 = scaler.transform(most_recent_scores)
                 predicted_score2 = model.predict(mr_scaled2)
-                noise2 = np.random.normal(0, 2, predicted_score2.shape)
+                noise2 = np.random.normal(0, 5, predicted_score2.shape)
 
                 predicted_score_noisy2 = predicted_score2 + noise2
                 sum_scores_df2['sum_predicted_score'] += predicted_score_noisy2.flatten()
@@ -320,12 +318,12 @@ def three_ball_model():
 
     st.title("3-Ball Matchup Model")
 
-    train_df_sorted = load_data('./data/train_df_sorted.csv')
-    test_df_sorted = load_data('./data/test_df_sorted.csv')
-    player_df = load_data('./data/player_df.csv')
-    total_df_sorted = load_data('./data/total_df_sorted.csv')
+    train_df_sorted = load_data('s3://mdbaws-b/train_df_sorted.csv')
+    test_df_sorted = load_data('s3://mdbaws-b/test_df_sorted.csv')
+    player_df = load_data('s3://mdbaws-b/player_df.csv')
+    total_df_sorted = load_data('s3://mdbaws-b/total_df_sorted.csv')
     total_df_sorted = total_df_sorted.sort_values(by='round_completed', ascending=True)
-    
+
 
     # Drop the non-numeric and non-lagged columns prior to training our model
     train_df_sorted = train_df_sorted.drop(['tour','event_name','course_name','player_name','round_completed','event_completed','year'
@@ -371,8 +369,8 @@ def three_ball_model():
     player_names = total_df_sorted['player_name'].unique()
     
     ##############################################################################################################
-    selected_player = st.selectbox('Select Player 1', np.sort(player_names), index = 799)
-    selected_player2 = st.selectbox('Select Player 2', np.sort(player_names), index = 606)
+    selected_player = st.selectbox('Select Player 1', np.sort(player_names), index = 802)
+    selected_player2 = st.selectbox('Select Player 2', np.sort(player_names), index = 608)
     selected_player3 = st.selectbox('Select Player 3', np.sort(player_names), index = 145)
     input_iter2 = st.number_input('Enter Number of Matchup Model Iterations (Recommended Range: 500-10000)', min_value=1, value=10,format="%d")
     if st.button('Run Matchup Simulation'):
@@ -397,7 +395,7 @@ def three_ball_model():
             for i2 in range(4):
                 mr_scaled2 = scaler.transform(most_recent_scores)
                 predicted_score2 = model.predict(mr_scaled2)
-                noise2 = np.random.normal(0, 2, predicted_score2.shape)
+                noise2 = np.random.normal(0, 5, predicted_score2.shape)
 
                 predicted_score_noisy2 = predicted_score2 + noise2
                 sum_scores_df2['sum_predicted_score'] += predicted_score_noisy2.flatten()
@@ -429,7 +427,7 @@ def three_ball_model():
 def stats_page():
     st.title("Player Scoring & Statistics History")
     
-    total_df_sorted = load_data('./data/total_df_sorted.csv')
+    total_df_sorted = load_data('s3://mdbaws-b/total_df_sorted.csv')
     total_df_sorted = total_df_sorted.sort_values(by='round_completed', ascending=True)
     
     total_df_sorted['round_completed'] = pd.to_datetime(total_df_sorted['round_completed'])
@@ -460,7 +458,7 @@ page = st.sidebar.radio("Choose a page:", ('Tournament Prediction Model', '2-Bal
 def load_data(filedf):
         df = pd.read_csv(filedf)
         return df
-rank_df = load_data('./data/rank_df.csv')
+rank_df = load_data('data/rank_df.csv')
 st.sidebar.title("World Golf Rankings")
 rank_df = rank_df.sort_values(by='owgr_rank', ascending=True)
 st.sidebar.dataframe(rank_df, height=200)
