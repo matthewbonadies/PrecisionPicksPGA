@@ -470,10 +470,24 @@ def stats_page():
 ##############################################################################################################
 page = st.sidebar.radio("Choose a page:", ('Tournament Prediction Model', '2-Ball Matchup Model', '3-Ball Matchup Model','Player Scoring & Statistics History'))
 ##############################################################################################################
-def load_data(filedf):
-        df = pd.read_csv(filedf)
+session = boto3.Session(
+    aws_access_key_id=st.secrets["aws_access_key_id"],
+    aws_secret_access_key=st.secrets["aws_secret_access_key"],
+    region_name='us-east-1'  # Change this to your bucket's region
+)
+s3 = session.client('s3')
+def load_data(bucket_name, object_key):
+    response = s3.get_object(Bucket=bucket_name, Key=object_key)
+    status = response.get("ResponseMetadata", {}).get("HTTPStatusCode")
+
+    if status == 200:
+        data = response['Body'].read()
+        df = pd.read_csv(BytesIO(data))
         return df
-rank_df = load_data('data/rank_df.csv')
+    else:
+        print("Failed to get data from", object_key)
+        return pd.DataFrame()
+rank_df = load_data('mdbaws-b', 'rank_df.csv')
 st.sidebar.title("World Golf Rankings")
 rank_df = rank_df.sort_values(by='owgr_rank', ascending=True)
 st.sidebar.dataframe(rank_df, height=200)
