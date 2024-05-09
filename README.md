@@ -21,8 +21,6 @@ With this project, our goal is to fill the void in easily accessible, data-drive
 - `Streamlit`
     - Contains all code to deploy streamlit application
     - Contains requirments.txt file listing all necessary packages to reproduce the environment for this project
-- `data`
-    - Contains all preprocessed data used for modeling
 - `Models`
     - Contains saved copies of trained models
 - `Presentations`
@@ -33,8 +31,6 @@ With this project, our goal is to fill the void in easily accessible, data-drive
     - Contains further supporting materials to help understand golf
 - `src`
     - Contains the project source code
-- `.gitattributes`
-    - Contains code to utilize Git LFS for managing large data files
 - `.devcontainer`
     - Code used by streamlit for public deployment of application
 
