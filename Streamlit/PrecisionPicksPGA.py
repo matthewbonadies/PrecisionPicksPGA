@@ -62,7 +62,7 @@ def load_data(bucket_name, object_key):
         return pd.DataFrame()
 
 def load_model():
-    model = keras.models.load_model('pga_nn_1.h5') #
+    model = keras.models.load_model('Streamlit/pga_nn_1.h5') #
     return model
 
 ##############################################################################################################
