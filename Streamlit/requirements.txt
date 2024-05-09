@@ -27,3 +27,5 @@ tensorboard-data-server
 tensorboard-plugin-wit
 tensorflow
 tensorflow-estimator
+boto3
+s3fs
