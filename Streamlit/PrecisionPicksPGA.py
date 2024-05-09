@@ -49,10 +49,6 @@ s3 = session.client('s3')
 
 ##############################################################################################################
 @st.cache_data
-def load_data(filedf):
-    df = pd.read_csv(filedf)
-    return df
-
 def load_data(bucket_name, object_key):
     response = s3.get_object(Bucket=bucket_name, Key=object_key)
     status = response.get("ResponseMetadata", {}).get("HTTPStatusCode")
@@ -65,6 +61,9 @@ def load_data(bucket_name, object_key):
         print("Failed to get data from", object_key)
         return pd.DataFrame()
 
+def load_model():
+    model = keras.models.load_model('pga_nn_1.h5') #
+    return model
 
 ##############################################################################################################
 image_path = 'Streamlit/PrecisionPicksPGA.png' #
